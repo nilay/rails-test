@@ -4,7 +4,7 @@
 #### Rails Version: 6.0.2
 #### Database: Postgresql
 
-##API Endpoints
+## API Endpoints
 
 ```ruby
 [GET] /persons
