@@ -17,13 +17,17 @@ end
 
 company_ids = Company.all.pluck(:id)
 city_ids = City.all.pluck(:id)
-100.times do
-  Person.create(
-      name: Faker::Name.name,
-      email: Faker::Internet.free_email,
-      company_id: company_ids.sample,
-      city_id: city_ids.sample
-  )
+10000.times do
+  begin
+    Person.create(
+        name: Faker::Name.name,
+        email: Faker::Internet.free_email,
+        company_id: company_ids.sample,
+        city_id: city_ids.sample
+    )
+  rescue
+    # eats up duplicate email error
+  end
 end
 
 
